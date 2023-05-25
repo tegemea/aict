@@ -20,7 +20,7 @@ watch(
         </VToolbarTitle>
         <VBtn :ripple="false" cols="auto" @click.prevent="toggleTheme" class="mx-5" variant="plain"
             title="Toggle Dark / Light modes">
-            <VIcon>{{ themeIcon }}</VIcon>
+            <VIcon :icon="themeIcon" />
         </VBtn>
         <RouterLink to="/" class="text-decoration-none mx-3">
             <VBtn elevation="4">
