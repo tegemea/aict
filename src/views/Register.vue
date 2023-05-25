@@ -1,4 +1,11 @@
 <script setup>
+import { useRegisterStore } from '../stores/register';
+import { storeToRefs } from 'pinia'
+
+const registerStore = useRegisterStore()
+const { skills, user, otherSkills } = storeToRefs(registerStore)
+const { getSkills, registerUser, clearRegisterForm } = registerStore
+if(!skills.value.length) getSkills()
 </script>
 
 <template>
@@ -63,9 +70,9 @@
                             </VCol>
                         </VSlideYTransition>
                         <VCol cols="12" class="mt-5">
-                            <VBtn @click.prevent="sendData" size="x-large" class="text-white bg-success me-3">Register
+                            <VBtn @click.prevent="registerUser" size="x-large" class="text-white bg-success me-3">Register
                             </VBtn>
-                            <VBtn @click.prevent="clearForm" variant="outlined" class="text-red">Clear</VBtn>
+                            <VBtn @click.prevent="clearRegisterForm" variant="outlined" class="text-red">Clear</VBtn>
                         </VCol>
                     </VRow>
                 </VForm>
