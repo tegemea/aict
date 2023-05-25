@@ -5,7 +5,7 @@ import { storeToRefs } from 'pinia'
 const memberStore = useMemberStore()
 const { members } = storeToRefs(memberStore)
 const { getMembers } = memberStore
-if(!members.value.length) getMembers()
+getMembers()
 
 </script>
 
