@@ -18,12 +18,7 @@ watch(
         <VToolbarTitle title="Arusha ICT Society">
             <VImg cover width="200" src="@/assets/images/logo.svg"></VImg>
         </VToolbarTitle>
-        <VBtn 
-            :ripple="false" 
-            cols="auto" 
-            @click.prevent="toggleTheme" 
-            class="mx-5" 
-            variant="plain"
+        <VBtn :ripple="false" cols="auto" @click.prevent="toggleTheme" class="mx-5" variant="plain"
             title="Toggle Dark / Light modes">
             <VIcon>{{ themeIcon }}</VIcon>
         </VBtn>
