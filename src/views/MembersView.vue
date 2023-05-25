@@ -18,11 +18,11 @@ if(!members.value.length) getMembers()
         </VCol>
     </VRow>
     <VRow v-if="members.length">
-        <VCol v-for="{ first_name, last_name, skills } in members" cols="12" md="4" xl="3">
+        <VCol v-for="({ first_name, last_name, skills },i) in members" cols="12" md="4" xl="3" :title="skills.map(s => s.name).join('\n')" :key="i">
             <VCard :title="`${first_name} ${last_name}`" :subtitle="`${skills.map(s => s.name).join(', ')}`" variant="tonal" />
         </VCol>
     </VRow>
-    <VRow>
+    <VRow v-else>
         <VCol cols="12" class="text-center">
             <h3>Sorry, no members at the moment..!</h3>
         </VCol>
