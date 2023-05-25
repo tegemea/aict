@@ -1,8 +1,13 @@
-import { defineStore } from 'pinia'
+import { defineStore, storeToRefs } from 'pinia'
 import { reactive, ref } from 'vue';
 import { axios } from '../configs/axios'
+import { useMemberStore } from './members';
+import { useRouter } from 'vue-router'
 
 export const useRegisterStore = defineStore('Register', () => {
+
+    const { members } = storeToRefs(useMemberStore())
+    const router = useRouter()
 
     const otherSkills = ref(false)
     const skills = ref([])
@@ -20,25 +25,18 @@ export const useRegisterStore = defineStore('Register', () => {
     const getSkills = async () => {
         try {
             const { data } = await axios.get('http://localhost:8013/skills')
-            skills.value = data
+            skills.value = data;
         } catch (e) {
             console.log(e)
         }
     }
 
     const registerUser = async () => {
-        console.log('sending data...')
         try {
-            // const data = await $fetch('https://knowit-api.kwawingu.com/join', {
-            //     method: 'POST',
-            //     body: user
-            // })
-            // const data = await $fetch('http://localhost:8013/join', {
-            //     method: 'POST',
-            //     body: user
-            // })
-            const data = await axios.post('http://localhost:8013/join', user)
-            console.log(data)
+            const { data : newMember } = await axios.post('http://localhost:8013/join', user)
+            members.value.push(newMember); // adds the new member in the list
+            clearRegisterForm() // clears the form after successful registration
+            router.push('/members') // re-routes to members for listing checkup
         } catch (e) {
             console.log(e)
         }
