@@ -4,7 +4,7 @@ import { reactive, ref } from 'vue';
 export const useRegisterStore = defineStore('Register', () => {
 const otherSkills = ref(false)
 
-const { data: skills } = useLazyFetch('http://localhost:8013/skills')
+// const { data: skills } = useLazyFetch('http://localhost:8013/skills')
 
 const user = reactive({
     first_name: '',
