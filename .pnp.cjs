@@ -28,6 +28,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@mdi/font", "npm:7.2.96"],\
             ["@vitejs/plugin-vue", "virtual:b9b3b2ab8a07a29f63a68fe9579141c870c06bbf6ff8c419d83cd28de658643429c06450413eecdc6dcecaaefe16a8d8783da0ae94aeeec5e7446b19fb019c37#npm:4.2.3"],\
             ["axios", "npm:1.4.0"],\
             ["pinia", "virtual:b9b3b2ab8a07a29f63a68fe9579141c870c06bbf6ff8c419d83cd28de658643429c06450413eecdc6dcecaaefe16a8d8783da0ae94aeeec5e7446b19fb019c37#npm:2.1.3"],\
@@ -291,6 +292,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@jridgewell-sourcemap-codec-npm-1.4.15-a055fb62cf-b881c7e503.zip/node_modules/@jridgewell/sourcemap-codec/",\
           "packageDependencies": [\
             ["@jridgewell/sourcemap-codec", "npm:1.4.15"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@mdi/font", [\
+        ["npm:7.2.96", {\
+          "packageLocation": "./.yarn/cache/@mdi-font-npm-7.2.96-1728e88270-f193bb9917.zip/node_modules/@mdi/font/",\
+          "packageDependencies": [\
+            ["@mdi/font", "npm:7.2.96"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -571,6 +581,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["arusha-ict-society", "workspace:."],\
+            ["@mdi/font", "npm:7.2.96"],\
             ["@vitejs/plugin-vue", "virtual:b9b3b2ab8a07a29f63a68fe9579141c870c06bbf6ff8c419d83cd28de658643429c06450413eecdc6dcecaaefe16a8d8783da0ae94aeeec5e7446b19fb019c37#npm:4.2.3"],\
             ["axios", "npm:1.4.0"],\
             ["pinia", "virtual:b9b3b2ab8a07a29f63a68fe9579141c870c06bbf6ff8c419d83cd28de658643429c06450413eecdc6dcecaaefe16a8d8783da0ae94aeeec5e7446b19fb019c37#npm:2.1.3"],\
