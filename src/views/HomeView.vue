@@ -6,7 +6,7 @@
   <VRow class="py-12 align-center">
     <VCol cols="12" md="6">
       <h1>Arusha ICT Society</h1>
-      <p>Arusha ICT Society is a group of ICT enthusiasts currently in Arusha, with aim to join members for their skills betterment, living standards & the surrounding Tanzania community at large. It’s a non-governmental Organization, not affiliated to any Religious or Political entity..</p>
+      <p>Arusha ICT Society is a group of ICT enthusiasts currently in Arusha, with aim to join members for the betterment their skills, living standards & the surrounding Tanzania community at large. It’s a non-governmental Organization, not affiliated to any Religious or Political entity..</p>
       <RouterLink to="/register" class="d-inline-block mt-12 text-decoration-none">
         <VBtn variant="outlined" size="x-large">
           <VIcon class="me-3">mdi-chevron-right-circle</VIcon>

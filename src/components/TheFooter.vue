@@ -3,7 +3,7 @@
         <VCol cols="12 my-5"><VDivider /></VCol>
         <VCol cols="12" md="3">
             <VImg cover src="src/assets/images/logo.svg" />
-            <p class="mt-5 text-justify">a group of ICT enthusiasts currently in Arusha, with aim to join members for their skills betterment, living standards</p>
+            <p class="mt-5 text-justify">Group of ICT enthusiasts in Arusha to join members for their betterment in skills, living standards and more</p>
         </VCol>
         <VCol cols="12" md="3">
             <h3 class="mb-3">Quick Links</h3>
@@ -19,7 +19,7 @@
             </div>
         </VCol>
         <VCol cols="12" md="3">
-            <h3 class="mb-3">AICT Activities</h3>
+            <h3 class="mb-3">AICTS Activities & Media</h3>
             <div>
                 <RouterLink to="#" class="text-grey text-decoration-none">Our Events</RouterLink>
                 <span class="ms-3 text-grey-darken-3 font-italic" danger>--- coming soon</span>
@@ -38,14 +38,15 @@
             </div>
         </VCol>
         <VCol cols="12" md="3">
-            <address class="text-grey">
-                <h3>Arusha ICT Society</h3>
+            <div>
+                <h3 class="mb-3">Arusha ICT Society</h3>
                 <div>
-                    Box 13340 Arusha <br>
-                    Tel : +255 787 880087
-                    Email : info@arushaictsociety.or.tz
+                    P. O. Box 13340 Arusha, TZ <br>
+                    <VIcon icon="mdi-whatsapp" class="me-2 text-green" />+255 787 880087 <br>
+                    <VIcon icon="mdi-phone" class="me-2 text-blue-lighten-1" />+255 782 481744 <br>
+                    <VIcon icon="mdi-email" class="me-2 text-red-accent-2" />info@arushaictsociety.or.tz
                 </div>
-            </address>
+            </div>
         </VCol>
     </VRow>
 </template>
