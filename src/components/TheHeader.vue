@@ -16,7 +16,7 @@ watch(
 <template>
     <VToolbar color="transparent">
         <VToolbarTitle title="Arusha ICT Society">
-            <VImg cover width="200" src="@/assets/images/logo.svg"></VImg>
+            <VImg cover width="200" src="./src/assets/images/logo.svg" />
         </VToolbarTitle>
         <VBtn :ripple="false" cols="auto" @click.prevent="toggleTheme" class="mx-5" variant="plain"
             title="Toggle Dark / Light modes">
