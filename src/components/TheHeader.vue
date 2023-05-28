@@ -15,8 +15,8 @@ watch(
 
 <template>
     <VToolbar color="transparent">
-        <VToolbarTitle title="Arusha ICT Society">
-            <VImg cover width="200" src="./src/assets/images/logo.svg" />
+        <VToolbarTitle title="Arusha ICT Society" class="d-none d-sm-flex">
+            <RouterLink to="/"><VImg cover width="200" src="./src/assets/images/logo.svg" /></RouterLink>
         </VToolbarTitle>
         <VBtn :ripple="false" cols="auto" @click.prevent="toggleTheme" class="mx-5" variant="plain"
             title="Toggle Dark / Light modes">
@@ -24,17 +24,20 @@ watch(
         </VBtn>
         <RouterLink to="/" class="text-decoration-none mx-3">
             <VBtn elevation="4">
-                <span>Home</span>
+                <VIcon icon="mdi-home" />
+                <span class="">Home</span>
             </VBtn>
         </RouterLink>
         <RouterLink to="/register" class="text-decoration-none mx-3">
             <VBtn elevation="4">
-                <span>Register</span>
+                <VIcon icon="mdi-account-plus" />
+                <span class="d-none d-sm-flex ms-2">Register</span>
             </VBtn>
         </RouterLink>
         <RouterLink to="/members" class="text-decoration-none mx-3">
             <VBtn elevation="4">
-                <span>Members</span>
+                <VIcon icon="mdi-account-group" />
+                <span class="d-none d-sm-flex ms-2">Members</span>
             </VBtn>
         </RouterLink>
     </VToolbar>

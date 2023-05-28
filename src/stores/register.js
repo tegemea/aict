@@ -22,6 +22,8 @@ export const useRegisterStore = defineStore('Register', () => {
         skills: []
     })
 
+    const valid = ref(false)
+
     const getSkills = async () => {
         try {
             const { data } = await axios.get('http://localhost:8013/skills')
@@ -58,6 +60,7 @@ export const useRegisterStore = defineStore('Register', () => {
         user,
         skills,
         otherSkills,
+        valid,
         getSkills,
         registerUser,
         clearRegisterForm
