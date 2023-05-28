@@ -24,8 +24,7 @@ watch(
         </VBtn>
         <RouterLink to="/" class="text-decoration-none mx-3">
             <VBtn elevation="4">
-                <VIcon icon="mdi-home" />
-                <span class="">Home</span>
+                <span class="ms-2-">Home</span>
             </VBtn>
         </RouterLink>
         <RouterLink to="/register" class="text-decoration-none mx-3">
