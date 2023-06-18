@@ -19,6 +19,7 @@ export const useRegisterStore = defineStore('Register', () => {
         job_status: '',
         company_name: '',
         office_location: '',
+        professional: true,
         skills: []
     })
 

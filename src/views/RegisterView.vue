@@ -64,24 +64,32 @@ if (!skills.value.length) getSkills()
                             </VSelect>
                         </VCol>
                         <VCol cols="12">
-                            <VCard class="pa-3 pb-6" title="Your major Skill(s)" variant="outlined">
-                                <VCardSubtitle class="px-4 text-grey">Please make sure you select at-least one skill below
-                                </VCardSubtitle>
-                                <VRow>
-                                    <VCol cols="12">
-                                        <VDivider class="ma-4 mb-0" />
-                                    </VCol>
-                                    <VCol cols="12" md="6" v-for="skill in skills" class="pa-0 px-4">
-                                        <VCheckbox v-model="user.skills" :rules="[itemMarked('Skill')]" :label="skill.name"
-                                            hide-details class="" color="blue-lighten-1" :value="skill.id" />
-                                    </VCol>
-                                    <VCol cols="12" md="6" class="pa-0 px-4">
-                                        <VCheckbox v-model="otherSkills" label="Others" hide-details
-                                            color="orange-darken-2" />
-                                    </VCol>
-                                </VRow>
-                            </VCard>
+                            <VCheckbox v-model="user.professional" color="red"
+                                label="I'm a Professional ICT individual (Please uncheck this if just a stakeholder)" />
                         </VCol>
+                        <VSlideYTransition>
+                            <VCol v-if="user.professional" cols="12">
+                                <VCard class="pa-3 pb-6" title="Your major Skill(s)" variant="outlined">
+                                    <VCardSubtitle class="px-4 text-grey">Please make sure you select at-least one skill
+                                        below
+                                    </VCardSubtitle>
+                                    <VRow>
+                                        <VCol cols="12">
+                                            <VDivider class="ma-4 mb-0" />
+                                        </VCol>
+                                        <VCol cols="12" md="6" v-for="skill in skills" class="pa-0 px-4">
+                                            <VCheckbox v-model="user.skills" :rules="[itemMarked('Skill')]"
+                                                :label="skill.name" hide-details class="" color="blue-lighten-1"
+                                                :value="skill.id" />
+                                        </VCol>
+                                        <VCol cols="12" md="6" class="pa-0 px-4">
+                                            <VCheckbox v-model="otherSkills" label="Others" hide-details
+                                                color="orange-darken-2" />
+                                        </VCol>
+                                    </VRow>
+                                </VCard>
+                            </VCol>
+                        </VSlideYTransition>
                         <VSlideYTransition>
                             <VCol cols="12" v-if="otherSkills">
                                 <VTextField variant="outlined" :rules="[required('Other skill(s)')]" rounded-lg type="text"
