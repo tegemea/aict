@@ -60,44 +60,51 @@ if (!skills.value.length) getSkills()
                         <VCol cols="12" sm="6">
                             <VSelect label="Your Employment status" v-model="user.job_status" variant="outlined"
                                 :items="['Student', 'Unemployed', 'Employed', 'Self-Employed', 'Freelancing']"
-                                :rules="[v => !!v || 'Please select your Employment status']" value="asdasdas" clearable>
+                                :rules="[v => !!v || 'Please select your Employment status']" clearable>
                             </VSelect>
                         </VCol>
                         <VCol cols="12">
                             <VCheckbox v-model="user.professional" color="red"
-                                label="I'm a Professional ICT individual (Please uncheck this if just a stakeholder)" />
+                                label="I'm a Professional ICT personnel (Please uncheck this if you are just a stakeholder)" />
                         </VCol>
                         <VSlideYTransition>
                             <VCol v-if="user.professional" cols="12">
-                                <VCard class="pa-3 pb-6" title="Your major Skill(s)" variant="outlined">
-                                    <VCardSubtitle class="px-4 text-grey">Please make sure you select at-least one skill
-                                        below
-                                    </VCardSubtitle>
-                                    <VRow>
-                                        <VCol cols="12">
-                                            <VDivider class="ma-4 mb-0" />
-                                        </VCol>
-                                        <VCol cols="12" md="6" v-for="skill in skills" class="pa-0 px-4">
-                                            <VCheckbox v-model="user.skills" :rules="[itemMarked('Skill')]"
-                                                :label="skill.name" hide-details class="" color="blue-lighten-1"
-                                                :value="skill.id" />
-                                        </VCol>
-                                        <VCol cols="12" md="6" class="pa-0 px-4">
-                                            <VCheckbox v-model="otherSkills" label="Others" hide-details
-                                                color="orange-darken-2" />
-                                        </VCol>
-                                    </VRow>
-                                </VCard>
+                                <VSelect v-model="user.skills" label="Select Your Major Skill/s (scroll for more)"
+                                    :rules="[required('Professional Skill/s')]" :items="skills" item-title="name"
+                                    item-value="id" variant="outlined" multiple chips clearable />
                             </VCol>
                         </VSlideYTransition>
+
                         <VSlideYTransition>
-                            <VCol cols="12" v-if="otherSkills">
-                                <VTextField variant="outlined" :rules="[required('Other skill(s)')]" rounded-lg type="text"
-                                    v-model="user.otherSkills" label="Other Skills"
-                                    hint="Enter other skills if your skill is not listed ( comma separated if more than one )"
-                                    persistent-hint />
-                            </VCol>
+                            <VRow v-if="user.professional" class="mx-0 my-2">
+                                <VCol cols="12">
+                                    <VCard variant="outlined" class="pa-5">
+                                        <VRow class="d-flex align-center">
+                                            <VCol cols="12 text-grey">
+                                                Please enter your other <strong>Proffesional Skill/s</strong> if they are not listed above
+                                                <VDivider class="mt-5" />
+                                            </VCol>
+                                            <VCol cols="1">
+                                                <VCheckbox v-model="otherSkills" class="pa-0 ma-0" hide-details />
+                                            </VCol>
+                                            <VSlideYTransition mode="out-in">
+                                                <VCol v-if="!otherSkills" cols="11" class="py-10">Mark the checkbox to
+                                                    enable entering other skills not listed above</VCol>
+                                                <VCol v-else cols="11" class="" style="padding: 13px 12px;">
+                                                    <VTextField :disabled="!otherSkills" variant="outlined"
+                                                        :rules="[required('Other skill/s not listed above')]" rounded-lg type="text"
+                                                        v-model="user.otherSkills"
+                                                        label="ex. Other Skill 1, Other Skill 2, etc..."
+                                                        hint="Enter other skill/s not listed above ( comma separated if more than one )"
+                                                        persistent-hint clearable />
+                                                </VCol>
+                                            </VSlideYTransition>
+                                        </VRow>
+                                    </VCard>
+                                </VCol>
+                            </VRow>
                         </VSlideYTransition>
+
                         <VCol cols="12" class="mt-5">
                             <VBtn @click.prevent="registerUser" :disabled="!valid" size="x-large"
                                 class="text-white bg-success me-3">
@@ -109,5 +116,4 @@ if (!skills.value.length) getSkills()
                 </VForm>
             </VCol>
         </VRow>
-    </VContainer>
-</template>
+    </VContainer></template>
