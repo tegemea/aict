@@ -51,7 +51,7 @@ if (!skills.value.length) getSkills()
                         <VCol cols="12">
                             <VTextField variant="outlined" rounded-lg type="text" v-model="user.company_name"
                                 label="Company name (optional)"
-                                hint="Enter Company name if you own any, comma separated if more than one ( optional )" />
+                                hint="Enter Company name if you own or working for any, comma separated if more than one" />
                         </VCol>
                         <VCol cols="12" sm="6">
                             <VTextField variant="outlined" rounded-lg type="text" v-model="user.office_location"
