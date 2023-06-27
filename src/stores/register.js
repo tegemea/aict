@@ -28,7 +28,7 @@ export const useRegisterStore = defineStore('Register', () => {
 
     const getSkills = async () => {
         try {
-            const { data } = await axios.get('http://localhost:8013/skills')
+            const { data } = await axios.get('/skills')
             skills.value = data;
         } catch (e) {
             console.log(e);
@@ -37,10 +37,6 @@ export const useRegisterStore = defineStore('Register', () => {
 
     const registerUser = async () => {
         try {
-            const axiosRequestConfigs = {
-                url: 'http://localhost:8013/skills',
-                method: 'post'
-            }
             // processing other skills if exists then register a member
             if (user.otherSkills.length) {
                 const otherSkills = user.otherSkills.split(',').map(s => s.trim())
@@ -50,7 +46,7 @@ export const useRegisterStore = defineStore('Register', () => {
                     const addedSkillsIDs = [];
                     try {
                         for (let skill of otherSkills) {
-                            const { data: { id } } = await axios.post('http://localhost:8013/skills', { name: skill })
+                            const { data: { id } } = await axios.post('/skills', { name: skill })
                             addedSkillsIDs.push(id)
                         }
                     } catch (e) {
@@ -64,7 +60,7 @@ export const useRegisterStore = defineStore('Register', () => {
                     try {
                         const addedSkillsToDB = await addOtherSkillsToDB()
                         addedSkillsToDB.forEach(s => user.skills.push(s))
-                        const { data: newMember } = await axios.post('http://localhost:8013/join', user)
+                        const { data: newMember } = await axios.post('/join', user)
                         members.value.push(newMember); // adds the new member in the list
                         clearRegisterForm() // clears the form after successful registration
                         router.push('/members') // re-routes to members for listing checkup
@@ -76,7 +72,7 @@ export const useRegisterStore = defineStore('Register', () => {
 
             } else {
                 try {
-                    const { data: newMember } = await axios.post('http://localhost:8013/join', user)
+                    const { data: newMember } = await axios.post('/join', user)
                     members.value.push(newMember); // adds the new member in the list
                     clearRegisterForm() // clears the form after successful registration
                     router.push('/members') // re-routes to members for listing checkup

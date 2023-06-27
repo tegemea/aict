@@ -6,7 +6,7 @@ export const useMemberStore = defineStore('Member', () => {
     const members = ref([])
 
     const getMembers = async () => {
-        const { data } = await axios.get('http://localhost:8013/users')
+        const { data } = await axios.get('/users')
         members.value = data
     }
 
