@@ -6,7 +6,7 @@ import { storeToRefs } from 'pinia'
 
 const registerStore = useRegisterStore()
 const { required, minLength, maxLength, isEmailValid, itemMarked } = useVuetifyFormValidations()
-const { skills, user, valid, otherSkills, registerForm } = storeToRefs(registerStore)
+const { skills, user, valid, otherSkills, registerForm, snackBar, showDialog } = storeToRefs(registerStore)
 const { getSkills, registerUser, clearRegisterForm } = registerStore
 if (!skills.value.length) getSkills()
 
@@ -19,6 +19,25 @@ if (!employmentStatuses.length) getEmploymentStatuses();
 
 <template>
     <VContainer>
+        <VDialog v-model="showDialog" persistent :width="400">
+            <VCard>
+                <VToolbar color="green" title="Success, You have been Registered..!" />
+                <VCardText>
+                    <h1 class="text-green">Thanks for Joining us</h1>
+                    <VDivider class="my-3" />
+                    <p class="text-grey-darken-3">Please pay your membership activation fee of TSh 20,000/= to Deo Mlolwa (0767321167) to activate your membership after which you'll be seen on our members list page.</p>
+                </VCardText>
+                <VCardActions class="justify-end">
+                    <VBtn color="grey" variant="outlined" @click="showDialog = false">CLOSE</VBtn>
+                </VCardActions>
+            </VCard>
+        </VDialog>
+        <!-- <VSnackbar location="center" color="blue" :max-width="300" vertical v-model="snackBar" :timeout="10000">
+            Thank you for Registering with us, please pay your Tsh 20,000/= membership fee to activate your account
+            <template v-slot:actions>
+                <Btn color="blue" @click="snackBar = false" variant="text" style="cursor: pointer;">CLOSE</Btn>
+            </template>
+        </VSnackbar> -->
         <VRow class="my-5">
             <VCol cols="12" class="d-flex align-center">
                 <VDivider />

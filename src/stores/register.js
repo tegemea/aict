@@ -27,6 +27,8 @@ export const useRegisterStore = defineStore('Register', () => {
 
     const valid = ref(false)
     const registerForm = ref(null)
+    const snackBar = ref(true)
+    const showDialog = ref(false)
 
     const getSkills = async () => {
         try {
@@ -65,6 +67,7 @@ export const useRegisterStore = defineStore('Register', () => {
                         const { data: newMember } = await axios.post('/join', user)
                         members.value.push(newMember); // adds the new member in the list
                         clearRegisterForm() // clears the form after successful registration
+                        showDialog.value = true;
                         // router.push('/members') // re-routes to members for listing checkup
                     } catch (e) {
                         console.log(e)
@@ -109,6 +112,8 @@ export const useRegisterStore = defineStore('Register', () => {
         otherSkills,
         valid,
         registerForm,
+        snackBar,
+        showDialog,
         getSkills,
         registerUser,
         clearRegisterForm
