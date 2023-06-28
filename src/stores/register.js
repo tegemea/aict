@@ -25,11 +25,12 @@ export const useRegisterStore = defineStore('Register', () => {
     })
 
     const valid = ref(false)
+    const registerForm = ref(null)
 
     const getSkills = async () => {
         try {
             const { data } = await axios.get('/skills')
-            skills.value = data;
+            skills.value = data.filter(s => s.active);
         } catch (e) {
             console.log(e);
         }
@@ -90,12 +91,14 @@ export const useRegisterStore = defineStore('Register', () => {
         user.last_name = ''
         user.email = ''
         user.phone = ''
+        user.professional = false
         user.job_status = null
         user.company_name = ''
         user.office_location = ''
         user.skills = []
         user.otherSkills = ''
         otherSkills.value = false
+        registerForm.value.resetValidation()
     }
 
     return {
@@ -103,6 +106,7 @@ export const useRegisterStore = defineStore('Register', () => {
         skills,
         otherSkills,
         valid,
+        registerForm,
         getSkills,
         registerUser,
         clearRegisterForm

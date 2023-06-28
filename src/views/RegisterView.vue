@@ -6,9 +6,14 @@ import { storeToRefs } from 'pinia'
 
 const registerStore = useRegisterStore()
 const { required, minLength, maxLength, isEmailValid, itemMarked } = useVuetifyFormValidations()
-const { skills, user, valid, otherSkills } = storeToRefs(registerStore)
+const { skills, user, valid, otherSkills, registerForm } = storeToRefs(registerStore)
 const { getSkills, registerUser, clearRegisterForm } = registerStore
 if (!skills.value.length) getSkills()
+
+const employmentStatus = useEmploymentStatusStore();
+const { employmentStatuses } = storeToRefs(employmentStatus);
+const { getEmploymentStatuses } = employmentStatus;
+if (!employmentStatuses.length) getEmploymentStatuses();
 
 </script>
 
@@ -26,7 +31,7 @@ if (!skills.value.length) getSkills()
                 <VImg cover src="src/assets/images/register-img.jpg" />
             </VCol>
             <VCol cols="12" md="7">
-                <VForm v-model="valid">
+                <VForm v-model="valid" ref="registerForm">
                     <VRow>
                         <VCol cols="12" sm="6">
                             <VTextField variant="outlined" v-model="user.first_name" :rules="[required('First name'), minLength('First name', 3), maxLength('First name', 30)]" counter="30" label="First name" class="rounded-xl" required>
@@ -49,7 +54,7 @@ if (!skills.value.length) getSkills()
                             <VTextField variant="outlined" rounded-lg type="text" v-model="user.office_location" label="Office Location (optional)" required></VTextField>
                         </VCol>
                         <VCol cols="12" sm="6">
-                            <VSelect label="Your Employment status" v-model="user.job_status" variant="outlined" :items="['Student', 'Unemployed', 'Employed', 'Self-Employed', 'Freelancing']" :rules="[v => !!v || 'Please select your Employment status']" clearable>
+                            <VSelect label="Your Employment status" v-model="user.job_status" variant="outlined" :items="employmentStatuses" item-title="name" item-value="id" :rules="[v => !!v || 'Please select your Employment status']" clearable>
                             </VSelect>
                         </VCol>
                         <VCol cols="12">
