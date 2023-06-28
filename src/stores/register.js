@@ -16,7 +16,8 @@ export const useRegisterStore = defineStore('Register', () => {
         last_name: '',
         email: '',
         phone: '',
-        job_status: null,
+        employment: null,
+        membership_status: false,
         company_name: '',
         office_location: '',
         professional: true,
@@ -64,7 +65,7 @@ export const useRegisterStore = defineStore('Register', () => {
                         const { data: newMember } = await axios.post('/join', user)
                         members.value.push(newMember); // adds the new member in the list
                         clearRegisterForm() // clears the form after successful registration
-                        router.push('/members') // re-routes to members for listing checkup
+                        // router.push('/members') // re-routes to members for listing checkup
                     } catch (e) {
                         console.log(e)
                     }
@@ -92,7 +93,8 @@ export const useRegisterStore = defineStore('Register', () => {
         user.email = ''
         user.phone = ''
         user.professional = false
-        user.job_status = null
+        user.membership_status = false
+        user.employment = null
         user.company_name = ''
         user.office_location = ''
         user.skills = []

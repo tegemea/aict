@@ -19,9 +19,8 @@ getMembers()
     </VRow>
     <VRow v-if="members.length">
         <VCol v-for="({ first_name, last_name, skills }, i) in members" cols="12" md="4" xl="3" :key="i">
-            <VCard :title="`${first_name} ${last_name}`" :subtitle="`${skills.map(s => s.name).join(', ')}`"
-                variant="tonal">
-                <VTooltip :max-width="250" activator="parent" location="bottom" :text="`${skills.map(s => s.name).join(', ')}`" />
+            <VCard :title="`${first_name} ${last_name}`" :subtitle="`${skills.filter(s => s.active).map(s => s.name).join(', ')}`" variant="tonal">
+                <VTooltip v-if="skills.length" :max-width="250" activator="parent" location="bottom" :text="`${skills.filter(s => s.active).map(s => s.name).join(', ')}`" />
             </VCard>
         </VCol>
     </VRow>
@@ -34,8 +33,8 @@ getMembers()
 
 <style scoped>
 .v-tooltip__content {
-  font-size: 50px !important;
-  opacity: 1 !important;
-  display: block !important;
+    font-size: 50px !important;
+    opacity: 1 !important;
+    display: block !important;
 }
 </style>

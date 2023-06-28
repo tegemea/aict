@@ -54,7 +54,7 @@ if (!employmentStatuses.length) getEmploymentStatuses();
                             <VTextField variant="outlined" rounded-lg type="text" v-model="user.office_location" label="Office Location (optional)" required></VTextField>
                         </VCol>
                         <VCol cols="12" sm="6">
-                            <VSelect label="Your Employment status" v-model="user.job_status" variant="outlined" :items="employmentStatuses" item-title="name" item-value="id" :rules="[v => !!v || 'Please select your Employment status']" clearable>
+                            <VSelect label="Your Employment status" v-model="user.employment" variant="outlined" :items="employmentStatuses" item-title="name" item-value="id" :rules="[v => !!v || 'Please select your Employment status']" clearable>
                             </VSelect>
                         </VCol>
                         <VCol cols="12">

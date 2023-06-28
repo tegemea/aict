@@ -7,7 +7,7 @@ export const useMemberStore = defineStore('Member', () => {
 
     const getMembers = async () => {
         const { data } = await axios.get('/users')
-        members.value = data
+        members.value = data.filter(m => m.membership_status)
     }
 
     return {
