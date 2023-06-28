@@ -47,7 +47,7 @@ if (!employmentStatuses.length) getEmploymentStatuses();
             <VCol cols="12" md="5" class="d-none d-md-block">
                 <div class="text-h4 mb-4 text-grey">Join us today</div>
                 <VDivider class="mb-12" />
-                <VImg cover src="src/assets/images/register-img.jpg" />
+                <VImg cover src="./assets/images/register-img.jpg" />
             </VCol>
             <VCol cols="12" md="7">
                 <VForm v-model="valid" ref="registerForm">

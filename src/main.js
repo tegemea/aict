@@ -24,6 +24,8 @@ import router from './router'
 
 const app = createApp(App)
 
+app.provide('baseURL', 'http://192.168.100.10:5175')
+
 app.use(createPinia())
 app.use(vuetify)
 app.use(router)

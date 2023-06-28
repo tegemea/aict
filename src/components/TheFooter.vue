@@ -1,8 +1,15 @@
+<script setup>
+import { inject } from 'vue'
+const baseURL = inject('baseURL')
+</script>
+
 <template>
     <VRow class="py-10">
-        <VCol cols="12 my-5"><VDivider /></VCol>
+        <VCol cols="12 my-5">
+            <VDivider />
+        </VCol>
         <VCol cols="12" sm="6" lg="3">
-            <VImg cover src="src/assets/images/logo.svg" />
+            <VImg cover :src="`./assets/images/logo.svg`" />
             <p class="mt-5 text-justify">Group of ICT enthusiasts in Arusha to join members for their betterment in skills, living standards and more</p>
         </VCol>
         <VCol cols="12" sm="6" lg="3">

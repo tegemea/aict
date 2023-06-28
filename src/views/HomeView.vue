@@ -15,12 +15,12 @@
       </RouterLink>
     </VCol>
     <VCol cols="12" md="6">
-      <VImg cover src="./src/assets/images/robot-banner.png" />
+      <VImg cover src="./assets/images/robot-banner.png" />
     </VCol>
   </VRow>
   <VRow class="py-12 align-center">
     <VCol cols="12" md="6">
-      <VImg cover src="./src/assets/images/people.png" />
+      <VImg cover src="./assets/images/people.png" />
     </VCol>
     <VCol cols="12" md="6">
       <VExpansionPanels>
